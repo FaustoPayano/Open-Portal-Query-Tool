@@ -6,39 +6,62 @@
         xmlns:local="clr-namespace:Open_Portal_Query_Tool"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Open Portal Query Tool" Width="1100"
+        Title="ODQT - Open Data Query Tool for OATH" Width="1100"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         FontSize="16">
-
-    <DockPanel>
+    <materialDesign:DialogHost Identifier="SettlementDialog">
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=HelpMenuButton, Path=IsChecked}">
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <DockPanel MinWidth="200">
+                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}"
+                                  DockPanel.Dock="Top"
+                                  HorizontalAlignment="Right" Margin="14"
+                                  IsChecked="{Binding ElementName=HelpMenuButton, Path=IsChecked, Mode=TwoWay}"/>
+                    <ListBox x:Name="HelpMenuListBox" Margin="0 16 0 16" SelectedIndex="0">
+                        <ListBoxItem Style="{StaticResource MaterialDesign}"/>
+                    </ListBox>
+                </DockPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+            
+            <DockPanel>
         <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2"
-                                  Mode="PrimaryDark" DockPanel.Dock="Top"></materialDesign:ColorZone>
+                                  Mode="PrimaryDark" DockPanel.Dock="Top">
+            <DockPanel>
+                 <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" x:Name="HelpMenuButton"/>
+                <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="RightAndAlignMiddles" HorizontalAlignment="Right">
+                    <StackPanel>
+                        <Button Content="Github"/>
+                        <Button Content="About"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Open Data Query Tool</TextBlock>
+            </DockPanel>
+        </materialDesign:ColorZone>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        
-        
-    </Grid>
-    </DockPanel>
+        </Grid>
+    </DockPanel></materialDesign:DrawerHost></materialDesign:DialogHost>
 </Window>
