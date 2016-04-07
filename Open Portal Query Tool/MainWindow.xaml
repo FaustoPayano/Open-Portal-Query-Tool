@@ -10,8 +10,7 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-        FontSize="16"
-        WindowStyle="">
+        FontSize="16">
     <materialDesign:DialogHost Identifier="SettlementDialog">
         <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=HelpMenuButton, Path=IsChecked}">
             <materialDesign:DrawerHost.LeftDrawerContent>
@@ -21,7 +20,7 @@
                                   HorizontalAlignment="Right" Margin="14"
                                   IsChecked="{Binding ElementName=HelpMenuButton, Path=IsChecked, Mode=TwoWay}"/>
                     <ListBox x:Name="HelpMenuListBox" Margin="0 16 0 16" SelectedIndex="0">
-                        <ListBoxItem />
+                        <CheckBox></CheckBox>
                     </ListBox>
                 </DockPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
