@@ -15,3 +15,23 @@ c:\users\fausto.payano\documents\visual studio 2013\Projects\Open Portal Query T
 c:\users\fausto.payano\documents\visual studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool.csproj.GenerateResource.Cache
 c:\users\fausto.payano\documents\visual studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool.exe
 c:\users\fausto.payano\documents\visual studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool.pdb
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\SODA.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\SODA.xml
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\Xceed.Wpf.DataGrid.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll

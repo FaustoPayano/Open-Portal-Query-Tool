@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Open_Portal_Query_Tool.Model;
+using Open_Portal_Query_Tool.ViewModel;
 
 namespace Open_Portal_Query_Tool {
     /// <summary>
@@ -19,6 +21,17 @@ namespace Open_Portal_Query_Tool {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            this.DataContext = mainWindowViewModel;
+            this.ColumnCheckListBox.ItemsSource = mainWindowViewModel.Columns;
+            mainWindowViewModel.Columns.Add(new OpenDataColumn("Testing", "Testing"));
+        }
+
+        /// <summary>
+        /// TODO:Dynamically update the Listbox located in the Left Drawer to display Checkboxes depending on the number of columns returned by the data.
+        /// </summary>
+        public void PopulateColumnListBox() {
+            
         }
     }
 }
