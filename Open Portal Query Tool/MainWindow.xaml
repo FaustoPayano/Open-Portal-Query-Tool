@@ -31,7 +31,7 @@
                  <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" x:Name="HelpMenuButton"/>
                 <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="RightAndAlignMiddles" HorizontalAlignment="Right">
                     <StackPanel>
-                        <Button Content="Github"/>
+                        <Button Content="Github" Click="GitHub_OnClick"/>
                         <Button Content="About"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
