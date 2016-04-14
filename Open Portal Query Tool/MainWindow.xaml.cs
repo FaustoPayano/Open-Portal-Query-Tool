@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using MaterialDesignThemes.Wpf;
+using Open_Portal_Query_Tool.Controls;
 using Open_Portal_Query_Tool.Model;
 using Open_Portal_Query_Tool.ViewModel;
 
@@ -25,7 +15,7 @@ namespace Open_Portal_Query_Tool {
             MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
             this.DataContext = mainWindowViewModel;
             this.ColumnCheckListBox.ItemsSource = mainWindowViewModel.Columns;
-            mainWindowViewModel.Columns.Add(new OpenDataColumn("Testing", "Testing"));
+            mainWindowViewModel.Columns.Add(new OpenDataColumn("ECB", "Visual Name"));
         }
 
         /// <summary>
@@ -37,6 +27,13 @@ namespace Open_Portal_Query_Tool {
 
         private void GitHub_OnClick(object sender, RoutedEventArgs e) {
             Process.Start("https://github.com/FaustoPayano");
+        }
+
+        private async void Warning_OnGotFocus(object sender, RoutedEventArgs e) {
+            var warningMessageDialog = new WarningDialog() {
+                WarningMessage = {Text = "If this value is changed you will no longer be querying the ECB Open Data dataset."}
+            };
+            await DialogHost.Show(warningMessageDialog, "RootDialog");
         }
     }
 }

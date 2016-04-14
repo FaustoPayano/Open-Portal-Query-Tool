@@ -35,3 +35,5 @@ C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query T
 C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\obj\Debug\Controls\WarningDialog.baml
+C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\obj\Debug\Controls\WarningDialog.g.cs

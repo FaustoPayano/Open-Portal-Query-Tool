@@ -12,7 +12,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         FontSize="16">
-    <materialDesign:DialogHost Identifier="SettlementDialog">
+    <materialDesign:DialogHost Identifier="RootDialog">
         <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=HelpMenuButton, Path=IsChecked}">
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <DockPanel MinWidth="200">
@@ -23,34 +23,34 @@
                     <xctk:CheckListBox Name="ColumnCheckListBox"/>
                 </DockPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
-            
-            <DockPanel>
-        <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2"
-                                  Mode="PrimaryDark" DockPanel.Dock="Top">
-            <DockPanel>
-                 <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" x:Name="HelpMenuButton"/>
-                <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="RightAndAlignMiddles" HorizontalAlignment="Right">
-                    <StackPanel>
-                        <Button Content="Github" Click="GitHub_OnClick"/>
-                        <Button Content="About"/>
-                    </StackPanel>
-                </materialDesign:PopupBox>
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Open Data Query Tool</TextBlock>
-            </DockPanel>
-        </materialDesign:ColorZone>
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+            <DockPanel>
+                <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                  Mode="PrimaryDark" DockPanel.Dock="Top">
+                    <DockPanel>
+                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" x:Name="HelpMenuButton"/>
+                        <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="RightAndAlignMiddles" HorizontalAlignment="Right">
+                            <StackPanel>
+                                <Button Content="Github" Click="GitHub_OnClick"/>
+                                <Button Content="About"/>
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Open Data Query Tool</TextBlock>
+                    </DockPanel>
+                </materialDesign:ColorZone>
+
+                <Grid Margin="16" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="Auto"/>
@@ -59,6 +59,10 @@
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
+                    <TextBox Grid.Row="0" Grid.Column="0" x:Name="ApiUrl" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="API URL" materialDesign:TextFieldAssist.HintOpacity=".5" Margin="5" Text="https://data.cityofnewyork.us/" MouseDoubleClick="Warning_OnGotFocus"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="ApiEndPoint" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="API EndPoint" materialDesign:TextFieldAssist.HintOpacity=".5" Margin="5" Text="gszd-efwt" MouseDoubleClick="Warning_OnGotFocus"/>
                 </Grid>
-    </DockPanel></materialDesign:DrawerHost></materialDesign:DialogHost>
+            </DockPanel>
+        </materialDesign:DrawerHost>
+    </materialDesign:DialogHost>
 </Window>
