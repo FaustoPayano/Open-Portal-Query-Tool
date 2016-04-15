@@ -90,6 +90,7 @@
     <Compile Include="Model\OpenDataColumn.cs" />
     <Compile Include="Model\QueryManager.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModel\DataGridViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="Controls\WarningDialog.xaml">
       <SubType>Designer</SubType>

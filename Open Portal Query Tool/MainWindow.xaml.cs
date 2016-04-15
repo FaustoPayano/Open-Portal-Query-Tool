@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
 using MaterialDesignThemes.Wpf;
 using Open_Portal_Query_Tool.Controls;
 using Open_Portal_Query_Tool.Model;
@@ -29,11 +30,28 @@ namespace Open_Portal_Query_Tool {
             Process.Start("https://github.com/FaustoPayano");
         }
 
+
+        /// <summary>
+        /// Displays warning message to user when clicking on triggering control. If control source is textbox, will set focus and caret to end of text for easy modification and to avoid retriggering warning.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Warning_OnGotFocus(object sender, RoutedEventArgs e) {
             var warningMessageDialog = new WarningDialog() {
-                WarningMessage = {Text = "If this value is changed you will no longer be querying the ECB Open Data dataset."}
+                WarningMessage = {Text = "Warning - this value points this tool to the dataset which it queries. \n If changed, you may be accessing a different dataset, or none at all."}
             };
             await DialogHost.Show(warningMessageDialog, "RootDialog");
+
+            if (sender.GetType() == typeof (TextBox)) {
+                var responseBox = (TextBox) sender;
+
+                responseBox.Focus();
+                responseBox.CaretIndex = responseBox.Text.Length;
+            }
+        }
+
+        private void QueryButton_OnClick(object sender, RoutedEventArgs e) {
+            
         }
     }
 }

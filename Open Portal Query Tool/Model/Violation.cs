@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace Open_Portal_Query_Tool.Model {
-    class Violation {
+    public class Violation {
 
         [JsonProperty("additional_penalties_or_late_fees")]
         public decimal AdditionalPenaltiesOrLateFees { get; set; }
@@ -118,5 +118,11 @@ namespace Open_Portal_Query_Tool.Model {
 
         [JsonProperty("violation_time")]
         public string ViolationTime { get; set; }
+
+       /* public override bool Equals(object o) {
+            return this.TicketNumber == ((Violation)o).TicketNumber;
+        */
     }
+
+    
 }
