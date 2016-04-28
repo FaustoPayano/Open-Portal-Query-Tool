@@ -1,21 +1,29 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using MaterialDesignThemes.Wpf;
 using Open_Portal_Query_Tool.Controls;
 using Open_Portal_Query_Tool.Model;
 using Open_Portal_Query_Tool.ViewModel;
+using SODA;
 
 namespace Open_Portal_Query_Tool {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+
+        private QueryManager globalQueryManager;
         public MainWindow() {
             InitializeComponent();
             MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
             this.DataContext = mainWindowViewModel;
             this.ColumnCheckListBox.ItemsSource = mainWindowViewModel.Columns;
+            
             mainWindowViewModel.Columns.Add(new OpenDataColumn("ECB", "Visual Name"));
         }
 
@@ -23,8 +31,34 @@ namespace Open_Portal_Query_Tool {
         /// TODO:Dynamically update the Listbox located in the Left Drawer to display Checkboxes depending on the number of columns returned by the data.
         /// </summary>
         public void PopulateColumnListBox() {
-            
+           var bgWorker = new BackgroundWorker();
+            bgWorker.DoWork += new DoWorkEventHandler(GetMetaData);
+            bgWorker.RunWorkerCompleted = +new RunWorkerCompletedEventHandler(GenerateColumns); // Resume with worker completed.
         }
+        /// <summary>
+        /// TODO:Set up config file for retrieving API Token.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GetMetaData(object sender, DoWorkEventArgs e) {
+            QueryManager localQueryManager = new QueryManager(ApiURLBox.Text, ApiEndPointBox.Text, GetAppToken());
+            globalQueryManager = localQueryManager;
+
+        }
+
+        /// <summary>
+        /// Retrieve App token From Config File. 
+        /// TODO:Create a more secure way of storing the AppToken
+        /// </summary>
+        /// <returns></returns>
+        private string GetAppToken() {
+            var configFile = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "config.txt");
+            if (File.Exists(configFile)) {
+                return File.ReadAllLines(configFile).ToString();
+            }
+            throw new ArgumentException("No config File Exists");
+        }
+
 
         private void GitHub_OnClick(object sender, RoutedEventArgs e) {
             Process.Start("https://github.com/FaustoPayano");
@@ -53,5 +87,7 @@ namespace Open_Portal_Query_Tool {
         private void QueryButton_OnClick(object sender, RoutedEventArgs e) {
             
         }
+
+        
     }
 }

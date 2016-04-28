@@ -59,8 +59,8 @@
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Row="0" Grid.Column="0" x:Name="ApiUrl" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="API URL" materialDesign:TextFieldAssist.HintOpacity=".5" Margin="5" Text="https://data.cityofnewyork.us/" PreviewMouseLeftButtonDown="Warning_OnGotFocus" Opacity=".5"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="ApiEndPoint" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="API EndPoint" materialDesign:TextFieldAssist.HintOpacity=".5" Margin="5" Text="gszd-efwt" PreviewMouseLeftButtonDown="Warning_OnGotFocus" Opacity=".5"/>
+                    <TextBox Name="ApiURLBox" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="API URL" materialDesign:TextFieldAssist.HintOpacity=".5" Margin="5" Text="https://data.cityofnewyork.us/" PreviewMouseLeftButtonDown="Warning_OnGotFocus" Opacity=".5" MaxWidth="245" MinWidth="226"/>
+                    <TextBox Name="ApiEndPointBox" Grid.Row="0" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="API EndPoint" materialDesign:TextFieldAssist.HintOpacity=".5" Margin="5" Text="gszd-efwt" PreviewMouseLeftButtonDown="Warning_OnGotFocus" Opacity=".5" MaxWidth="100" MinWidth="85"/>
                     
                     
                     <!-- TODO: Set Item Source and create an observable collection containing the Open Data Query contents here! -->
@@ -70,7 +70,9 @@
                             Width="150"
                             ToolTip="Query Submission Button"
                             materialDesign:RippleAssist.IsCentered="True"
-                            Click="QueryButton_OnClick"/>
+                            Click="QueryButton_OnClick">
+                        Query
+                    </Button>
                 </Grid>
             </DockPanel>
         </materialDesign:DrawerHost>
