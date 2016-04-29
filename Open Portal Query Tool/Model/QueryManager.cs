@@ -20,7 +20,7 @@ namespace Open_Portal_Query_Tool.Model {
         /// <param name="appToken"></param>
         public QueryManager(string url, string endPoint, string appToken) {
             //TODO: Must investigate to see if can use default app-token unless new one indicated.
-            _client = new SodaClient(url, string.Empty);
+            _client = new SodaClient(url, appToken);
             _metaData = _client.GetMetadata(endPoint);
             _dataset = _client.GetResource<Violation>(endPoint);
 

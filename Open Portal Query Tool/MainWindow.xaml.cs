@@ -18,31 +18,63 @@ namespace Open_Portal_Query_Tool {
     public partial class MainWindow : Window {
 
         private QueryManager globalQueryManager;
+        private ResourceMetadata resourceMetaData;
+        private MainWindowViewModel mainWindowViewModel;
         public MainWindow() {
             InitializeComponent();
-            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            mainWindowViewModel = new MainWindowViewModel();
             this.DataContext = mainWindowViewModel;
             this.ColumnCheckListBox.ItemsSource = mainWindowViewModel.Columns;
-            
-            mainWindowViewModel.Columns.Add(new OpenDataColumn("ECB", "Visual Name"));
+            PopulateColumnListBox();
         }
 
         /// <summary>
-        /// TODO:Dynamically update the Listbox located in the Left Drawer to display Checkboxes depending on the number of columns returned by the data.
+        /// Dynamically update the Listbox located in the Left Drawer to display Checkboxes depending on the number of columns returned by the data.
         /// </summary>
         public void PopulateColumnListBox() {
-           var bgWorker = new BackgroundWorker();
-            bgWorker.DoWork += new DoWorkEventHandler(GetMetaData);
-            bgWorker.RunWorkerCompleted = +new RunWorkerCompletedEventHandler(GenerateColumns); // Resume with worker completed.
+
+            /*
+           var columnPopulatorWorker = new BackgroundWorker();
+            columnPopulatorWorker.DoWork += new DoWorkEventHandler(GetMetaData);
+            columnPopulatorWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(GenerateColumns);
+            columnPopulatorWorker.RunWorkerAsync();
+             */
+
+
+#if DEBUG
+            globalQueryManager = new QueryManager(ApiURLBox.Text, ApiEndPointBox.Text, GetAppToken());
+            resourceMetaData = globalQueryManager.GetMetaData();
+            foreach (var row in resourceMetaData.Columns) {
+                mainWindowViewModel.Columns.Add(new OpenDataColumn(row.SodaFieldName, row.Name));
+            }
+#endif
+        }
+
+        /// <summary>
+        /// When worker retrieves resources from dataset we begin populating column.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GenerateColumns(object sender, RunWorkerCompletedEventArgs e) {
+            if (e != null) {
+                ResourceMetadata resourceMetaData = (ResourceMetadata) e.Result;
+                foreach (var row in resourceMetaData.Columns) {
+                    mainWindowViewModel.Columns.Add(new OpenDataColumn(row.Name, row.SodaFieldName));
+                }
+            }
+            else {
+                MessageBox.Show("E is null");
+            }
         }
         /// <summary>
-        /// TODO:Set up config file for retrieving API Token.
+        /// This Method creates an instance of query manager based on the data entered on our respective textboxes. It also retrieves config file app token. Creates a New Query Manager Instnace
+        /// TODO: Refine The GetAppToken() Method, more secure method exists. Rename Method name to avoid confusion with local method GetMetaData().
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void GetMetaData(object sender, DoWorkEventArgs e) {
-            QueryManager localQueryManager = new QueryManager(ApiURLBox.Text, ApiEndPointBox.Text, GetAppToken());
-            globalQueryManager = localQueryManager;
+            globalQueryManager = new QueryManager(ApiURLBox.Text, ApiEndPointBox.Text, GetAppToken());
+            e.Result = globalQueryManager.GetMetaData();
 
         }
 
@@ -51,7 +83,7 @@ namespace Open_Portal_Query_Tool {
         /// TODO:Create a more secure way of storing the AppToken
         /// </summary>
         /// <returns></returns>
-        private string GetAppToken() {
+        public string GetAppToken() {
             var configFile = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "config.txt");
             if (File.Exists(configFile)) {
                 return File.ReadAllLines(configFile).ToString();
