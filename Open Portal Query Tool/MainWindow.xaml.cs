@@ -46,6 +46,9 @@ namespace Open_Portal_Query_Tool {
             resourceMetaData = globalQueryManager.GetMetaData();
             foreach (var row in resourceMetaData.Columns) {
                 mainWindowViewModel.Columns.Add(new OpenDataColumn(row.SodaFieldName, row.Name));
+                ViolationDataGrid.Columns.Add(new DataGridTextColumn() {
+                    Header = row.Name
+                });
             }
 #endif
         }
@@ -120,6 +123,13 @@ namespace Open_Portal_Query_Tool {
             
         }
 
-        
+        /// <summary>
+        /// Updates Meta Data reference to new instance and sets the columns.
+        ///  </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateColumnsMetaData_Click(object sender, RoutedEventArgs e) {
+            PopulateColumnListBox();
+        }
     }
 }

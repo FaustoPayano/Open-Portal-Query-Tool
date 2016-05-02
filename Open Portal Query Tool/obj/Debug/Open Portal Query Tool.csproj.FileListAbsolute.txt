@@ -37,3 +37,42 @@ C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query T
 C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\obj\Debug\Controls\WarningDialog.baml
 C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\obj\Debug\Controls\WarningDialog.g.cs
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\Open Portal Query Tool.exe.config
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool.exe
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool.pdb
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\Open Portal Query Tool.exe
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\Open Portal Query Tool.pdb
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\MaterialDesignColors.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\SODA.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\Xceed.Wpf.DataGrid.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\SODA.xml
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool.csprojResolveAssemblyReference.cache
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\Controls\WarningDialog.baml
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\App.baml
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\Controls\WarningDialog.g.cs
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\MainWindow.g.cs
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\App.g.cs
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool_MarkupCompile.cache
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool_MarkupCompile.lref
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\MainWindow.baml
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool.g.resources
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\Open_Portal_Query_Tool.Properties.Resources.resources
+C:\Users\Fausto Payano\Desktop\Open Data Query Tool\Open-Portal-Query-Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool.csproj.GenerateResource.Cache

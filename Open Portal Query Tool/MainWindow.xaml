@@ -61,10 +61,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBox Name="ApiURLBox" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="API URL" materialDesign:TextFieldAssist.HintOpacity=".5" Margin="5" Text="https://data.cityofnewyork.us/" PreviewMouseLeftButtonDown="Warning_OnGotFocus" Opacity=".5" MaxWidth="245" MinWidth="226"/>
                     <TextBox Name="ApiEndPointBox" Grid.Row="0" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="API EndPoint" materialDesign:TextFieldAssist.HintOpacity=".5" Margin="5" Text="gszd-efwt" PreviewMouseLeftButtonDown="Warning_OnGotFocus" Opacity=".5" MaxWidth="100" MinWidth="85"/>
-                    <Button Grid.Row="0" Grid.Column="2" MinWidth="100" MaxWidth="100" Style="{StaticResource MaterialDesignRaisedAccentButton}"></Button>
+                    <Button Grid.Row="0" Grid.Column="2" MinWidth="100" Style="{StaticResource MaterialDesignRaisedAccentButton}" Click="UpdateColumnsMetaData_Click">Update Metadata</Button>
                     
                     <!-- TODO: Set Item Source and create an observable collection containing the Open Data Query contents here! -->
-                    <DataGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="7" Margin="0 8 0 0" CanUserSortColumns="True" CanUserAddRows="False" ItemsSource="{Binding Violations}" />
+                    <DataGrid Name="ViolationDataGrid" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="7" Margin="0 8 0 0" CanUserSortColumns="True" CanUserAddRows="False" ItemsSource="{Binding Violations}" />
                     <Button Grid.Row="4" Grid.Column="3" Style="{StaticResource MaterialDesignRaisedAccentButton}"
                             Margin="0 0 8 0"
                             Width="150"
