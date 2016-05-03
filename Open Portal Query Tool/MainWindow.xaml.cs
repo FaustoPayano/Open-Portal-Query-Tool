@@ -46,9 +46,9 @@ namespace Open_Portal_Query_Tool {
             resourceMetaData = globalQueryManager.GetMetaData();
             foreach (var row in resourceMetaData.Columns) {
                 mainWindowViewModel.Columns.Add(new OpenDataColumn(row.SodaFieldName, row.Name));
-                ViolationDataGrid.Columns.Add(new DataGridTextColumn() {
+               /* ViolationDataGrid.Columns.Add(new DataGridTextColumn() {
                     Header = row.Name
-                });
+                });*/
             }
 #endif
         }
