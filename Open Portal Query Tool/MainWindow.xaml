@@ -7,10 +7,11 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:viewModel="clr-namespace:Open_Portal_Query_Tool.ViewModel"
         mc:Ignorable="d"
-        Title="ODQT - Open Data Query Tool for OATH" Width="1100"
+        Title="ODQT - Open Data Query Tool for OATH" Width="1100" MaxHeight="600"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        ResizeMode="NoResize"
         FontSize="16">
     <materialDesign:DialogHost Identifier="RootDialog">
         <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=HelpMenuButton, Path=IsChecked}">
@@ -47,27 +48,31 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="50"/>
-                        <RowDefinition Height="Auto"/>
+
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBox Name="ApiURLBox" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="API URL" materialDesign:TextFieldAssist.HintOpacity=".5" Margin="5" Text="https://data.cityofnewyork.us/" PreviewMouseLeftButtonDown="Warning_OnGotFocus" Opacity=".5" MaxWidth="245" MinWidth="226"/>
                     <TextBox Name="ApiEndPointBox" Grid.Row="0" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="API EndPoint" materialDesign:TextFieldAssist.HintOpacity=".5" Margin="5" Text="gszd-efwt" PreviewMouseLeftButtonDown="Warning_OnGotFocus" Opacity=".5" MaxWidth="100" MinWidth="85"/>
-                    <Button Grid.Row="0" Grid.Column="2" MinWidth="100" Style="{StaticResource MaterialDesignRaisedAccentButton}" Click="UpdateColumnsMetaData_Click">Update Metadata</Button>
-                    
-                    <!-- TODO: Set Item Source and create an observable collection containing the Open Data Query contents here! -->
-                    <DataGrid Name="ViolationDataGrid" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="7" Margin="0 8 0 0" CanUserSortColumns="True" CanUserAddRows="False" ItemsSource="{Binding Violations}" />
-                    <Button Grid.Row="4" Grid.Column="3" Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                    <Button Grid.Row="0" Grid.Column="2" MinWidth="75" Style="{StaticResource MaterialDesignRaisedAccentButton}" Click="UpdateColumnsMetaData_Click">Update Metadata</Button>
+
+                    <DataGrid Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="6" Name="ViolationDataGrid"  Margin="0 8 0 0" 
+                              CanUserSortColumns="True" CanUserAddRows="False"
+                              ItemsSource="{Binding Violations}" 
+                              VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" 
+                              BorderThickness="1.5" BorderBrush="MidnightBlue" 
+                              MaxHeight="300" MinWidth="500" MinHeight="300"
+                              materialDesign:DataGridAssist.CellPadding="4 2 2 2" materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2"
+                              />
+                    <Button Grid.Row="5" Grid.Column="5" Style="{StaticResource MaterialDesignRaisedAccentButton}"
                             Margin="0 0 8 0"
-                            Width="150"
+                            Width="100"
                             ToolTip="Query Submission Button"
                             materialDesign:RippleAssist.IsCentered="True"
                             Click="QueryButton_OnClick">

@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,14 +23,18 @@ namespace Open_Portal_Query_Tool {
         private QueryManager globalQueryManager;
         private ResourceMetadata resourceMetaData;
         private MainWindowViewModel mainWindowViewModel;
+        private DataGridViewModel mainDataGridViewModel;
+
         public MainWindow() {
             InitializeComponent();
             mainWindowViewModel = new MainWindowViewModel();
             this.DataContext = mainWindowViewModel;
             this.ColumnCheckListBox.ItemsSource = mainWindowViewModel.Columns;
+            mainDataGridViewModel = new DataGridViewModel();
+            ViolationDataGrid.DataContext = mainDataGridViewModel;
+            ViolationDataGrid.ItemsSource = mainDataGridViewModel.Violations;
             PopulateColumnListBox();
         }
-
         /// <summary>
         /// Dynamically update the Listbox located in the Left Drawer to display Checkboxes depending on the number of columns returned by the data.
         /// </summary>
@@ -44,15 +51,16 @@ namespace Open_Portal_Query_Tool {
 #if DEBUG
             globalQueryManager = new QueryManager(ApiURLBox.Text, ApiEndPointBox.Text, GetAppToken());
             resourceMetaData = globalQueryManager.GetMetaData();
+            mainWindowViewModel.Columns.Clear();
+            ViolationDataGrid.Columns.Clear();
             foreach (var row in resourceMetaData.Columns) {
                 mainWindowViewModel.Columns.Add(new OpenDataColumn(row.SodaFieldName, row.Name));
-               /* ViolationDataGrid.Columns.Add(new DataGridTextColumn() {
+                ViolationDataGrid.Columns.Add(new DataGridTextColumn() {
                     Header = row.Name
-                });*/
+                });
             }
 #endif
         }
-
         /// <summary>
         /// When worker retrieves resources from dataset we begin populating column.
         /// </summary>
@@ -80,7 +88,6 @@ namespace Open_Portal_Query_Tool {
             e.Result = globalQueryManager.GetMetaData();
 
         }
-
         /// <summary>
         /// Retrieve App token From Config File. 
         /// TODO:Create a more secure way of storing the AppToken
@@ -93,13 +100,9 @@ namespace Open_Portal_Query_Tool {
             }
             throw new ArgumentException("No config File Exists");
         }
-
-
         private void GitHub_OnClick(object sender, RoutedEventArgs e) {
             Process.Start("https://github.com/FaustoPayano");
         }
-
-
         /// <summary>
         /// Displays warning message to user when clicking on triggering control. If control source is textbox, will set focus and caret to end of text for easy modification and to avoid retriggering warning.
         /// </summary>
@@ -116,12 +119,23 @@ namespace Open_Portal_Query_Tool {
 
                 responseBox.Focus();
                 responseBox.CaretIndex = responseBox.Text.Length;
+                responseBox.SelectAll();
             }
         }
-
-        private void QueryButton_OnClick(object sender, RoutedEventArgs e) {
-            
+        private async void QueryButton_OnClick(object sender, RoutedEventArgs e) {
+            IEnumerable<Violation> resultSet;
+            await Task.Run(() => {
+                resultSet = globalQueryManager.GetAllRows();
+                foreach (var violation in resultSet) {
+                    App.Current.Dispatcher.Invoke((Action) delegate {
+                        mainDataGridViewModel.AddViolationRecord(violation);
+                    });
+                }
+            });
+            ViolationDataGrid.Items.Refresh();
         }
+
+
 
         /// <summary>
         /// Updates Meta Data reference to new instance and sets the columns.

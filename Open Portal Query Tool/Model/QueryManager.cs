@@ -1,5 +1,8 @@
-﻿using System.Security.Policy;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Security.Policy;
 using System.Windows.Controls;
+using Newtonsoft.Json.Linq;
 using SODA;
 
 namespace Open_Portal_Query_Tool.Model {
@@ -13,7 +16,6 @@ namespace Open_Portal_Query_Tool.Model {
 
         /// <summary>
         /// Create instance of QueryManager and establish connection to Dataset.
-        /// Todo:Implemement appToken control for dynamic Application Token Entry.
         /// </summary>
         /// <param name="url"></param>
         /// <param name="endPoint"></param>
@@ -23,7 +25,16 @@ namespace Open_Portal_Query_Tool.Model {
             _client = new SodaClient(url, appToken);
             _metaData = _client.GetMetadata(endPoint);
             _dataset = _client.GetResource<Violation>(endPoint);
+            
+        }
 
+        /// <summary>
+        /// Testing method designed to retrieve first 500 rows of dataset.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Violation> GetAllRows() {
+            return _dataset.GetRows(500).Cast<Violation>();
+            
         }
 
         public ResourceMetadata GetMetaData() {

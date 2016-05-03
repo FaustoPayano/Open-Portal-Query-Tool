@@ -43,7 +43,6 @@ namespace Open_Portal_Query_Tool.ViewModel {
                 this.CollectionChanged(this, args);
             }
         }
-
         public event NotifyCollectionChangedEventHandler CollectionChanged;
         #endregion
         #region INotifyPropertyChanged

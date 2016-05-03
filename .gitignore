@@ -251,3 +251,8 @@ paket-files/
 .idea/
 *.sln.iml
 Open Portal Query Tool/config.txt
+*.suo
+Open Portal Query Tool/obj/Debug/MainWindow.baml
+*.exe
+Open Portal Query Tool/obj/Debug/Open Portal Query Tool.pdb
+*.resources
