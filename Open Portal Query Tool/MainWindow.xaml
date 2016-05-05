@@ -61,6 +61,7 @@
                     <TextBox Name="ApiURLBox" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="API URL" materialDesign:TextFieldAssist.HintOpacity=".5" Margin="5" Text="https://data.cityofnewyork.us/" PreviewMouseLeftButtonDown="Warning_OnGotFocus" Opacity=".5" MaxWidth="245" MinWidth="226"/>
                     <TextBox Name="ApiEndPointBox" Grid.Row="0" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="API EndPoint" materialDesign:TextFieldAssist.HintOpacity=".5" Margin="5" Text="gszd-efwt" PreviewMouseLeftButtonDown="Warning_OnGotFocus" Opacity=".5" MaxWidth="100" MinWidth="85"/>
                     <Button Grid.Row="0" Grid.Column="2" MinWidth="75" Style="{StaticResource MaterialDesignRaisedAccentButton}" Click="UpdateColumnsMetaData_Click">Update Metadata</Button>
+                    <TextBox Name="lastUpdatedBox" Grid.Row="0" Grid.Column="3" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.Hint="Dataset Last Updated" materialDesign:TextFieldAssist.HintOpacity=".5" Text="{Binding LastUpdated}" FontSize="8"/>
 
                     <DataGrid Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="6" Name="ViolationDataGrid"  Margin="0 8 0 0" 
                               CanUserSortColumns="True" CanUserAddRows="False"

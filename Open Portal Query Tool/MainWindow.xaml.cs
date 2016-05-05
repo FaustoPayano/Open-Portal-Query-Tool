@@ -29,6 +29,7 @@ namespace Open_Portal_Query_Tool {
             InitializeComponent();
             mainWindowViewModel = new MainWindowViewModel();
             this.DataContext = mainWindowViewModel;
+            mainWindowViewModel.AppToken = GetAppToken();
             this.ColumnCheckListBox.ItemsSource = mainWindowViewModel.Columns;
             mainDataGridViewModel = new DataGridViewModel();
             ViolationDataGrid.DataContext = mainDataGridViewModel;
@@ -49,10 +50,11 @@ namespace Open_Portal_Query_Tool {
 
 
 #if DEBUG
-            globalQueryManager = new QueryManager(ApiURLBox.Text, ApiEndPointBox.Text, GetAppToken());
+            globalQueryManager = new QueryManager(ApiURLBox.Text, ApiEndPointBox.Text, mainWindowViewModel.AppToken);
             resourceMetaData = globalQueryManager.GetMetaData();
             mainWindowViewModel.Columns.Clear();
             ViolationDataGrid.Columns.Clear();
+            mainWindowViewModel.LastUpdated = resourceMetaData.RowsLastUpdated.Value.Date;
             foreach (var row in resourceMetaData.Columns) {
                 mainWindowViewModel.Columns.Add(new OpenDataColumn(row.SodaFieldName, row.Name));
                 ViolationDataGrid.Columns.Add(new DataGridTextColumn() {
@@ -93,10 +95,13 @@ namespace Open_Portal_Query_Tool {
         /// TODO:Create a more secure way of storing the AppToken
         /// </summary>
         /// <returns></returns>
-        public string GetAppToken() {
+        private string GetAppToken() {
             var configFile = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "config.txt");
             if (File.Exists(configFile)) {
-                return File.ReadAllLines(configFile).ToString();
+                using (StreamReader reader = new StreamReader(configFile)) {
+                    var appToken = reader.ReadLine();
+                    return appToken;
+                }
             }
             throw new ArgumentException("No config File Exists");
         }

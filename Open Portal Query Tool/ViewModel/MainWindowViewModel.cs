@@ -13,8 +13,27 @@ using Open_Portal_Query_Tool.Model;
 namespace Open_Portal_Query_Tool.ViewModel {
     public class MainWindowViewModel : INotifyCollectionChanged, INotifyPropertyChanged {
         private string _appToken;
+        private DateTime _lastUpdated;
 
 
+        #region Notify_Declerations
+
+        public string AppToken {
+            get { return _appToken; }
+            set { _appToken = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public DateTime LastUpdated {
+            get { return _lastUpdated; }
+            set {
+                _lastUpdated = value;
+                NotifyPropertyChanged();
+            }
+        }
+		 
+	#endregion
         #region LeftDrawerCheckMarkAddition
 
         public void Add(CheckBox item) {
@@ -47,10 +66,9 @@ namespace Open_Portal_Query_Tool.ViewModel {
         #endregion
         #region INotifyPropertyChanged
 
-        private void OnPropertyChanged<T>([CallerMemberName] string caller = null) {
-            var handler = PropertyChanged;
-            if (handler != null) {
-                handler(this, new PropertyChangedEventArgs(caller));
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "") {
+            if (PropertyChanged != null) {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
         
