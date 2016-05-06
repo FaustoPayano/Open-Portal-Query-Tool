@@ -13,7 +13,7 @@ using Open_Portal_Query_Tool.Model;
 namespace Open_Portal_Query_Tool.ViewModel {
     public class MainWindowViewModel : INotifyCollectionChanged, INotifyPropertyChanged {
         private string _appToken;
-        private DateTime _lastUpdated;
+        private string _lastUpdated;
 
 
         #region Notify_Declerations
@@ -25,7 +25,7 @@ namespace Open_Portal_Query_Tool.ViewModel {
             }
         }
 
-        public DateTime LastUpdated {
+        public string LastUpdated {
             get { return _lastUpdated; }
             set {
                 _lastUpdated = value;

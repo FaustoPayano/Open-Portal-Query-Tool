@@ -75,4 +75,3 @@ C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query T
 C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool.csproj.GenerateResource.Cache
 C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool.exe
 C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool.pdb
-C:\Users\Fausto.Payano\Documents\Visual Studio 2013\Projects\Open Portal Query Tool\Open Portal Query Tool\obj\Debug\Open Portal Query Tool.csprojResolveAssemblyReference.cache

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -54,7 +55,7 @@ namespace Open_Portal_Query_Tool {
             resourceMetaData = globalQueryManager.GetMetaData();
             mainWindowViewModel.Columns.Clear();
             ViolationDataGrid.Columns.Clear();
-            mainWindowViewModel.LastUpdated = resourceMetaData.RowsLastUpdated.Value.Date;
+            mainWindowViewModel.LastUpdated = resourceMetaData.RowsLastUpdated.Value.ToString("MM-dd-yyyy");
             foreach (var row in resourceMetaData.Columns) {
                 mainWindowViewModel.Columns.Add(new OpenDataColumn(row.SodaFieldName, row.Name));
                 ViolationDataGrid.Columns.Add(new DataGridTextColumn() {
