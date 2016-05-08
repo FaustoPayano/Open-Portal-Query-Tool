@@ -66,6 +66,8 @@
 
                     <DataGrid Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="6" Name="ViolationDataGrid"  Margin="0 8 0 0" 
                               CanUserSortColumns="True" CanUserAddRows="False"
+                              EnableColumnVirtualization="True"
+                              EnableRowVirtualization="True"
                               ItemsSource="{Binding Violations}" 
                               VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" 
                               BorderThickness="1.5" BorderBrush="MidnightBlue" 
