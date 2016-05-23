@@ -22,7 +22,7 @@
                                   DockPanel.Dock="Top"
                                   HorizontalAlignment="Right" Margin="14"
                                   IsChecked="{Binding ElementName=HelpMenuButton, Path=IsChecked, Mode=TwoWay}"/>
-                    <xctk:CheckListBox Name="ColumnCheckListBox"/>
+                    <xctk:CheckListBox Name="ColumnCheckListBox" ItemSelectionChanged="_listBox_ItemSelectionChanged"/>
                 </DockPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
 
@@ -35,6 +35,8 @@
                             <StackPanel>
                                 <Button Content="Github" Click="GitHub_OnClick"/>
                                 <Button Content="About"/>
+                                <Button Content="Violation Number Search" ToolTip="Query using a list of violation numbers from a text file." Click="ViolationListSearch_OnClick"/>
+                                <Button Content="Export to Excel" ToolTip="Export violations on datagrid to excel spreadsheet." Click="PortToExcel_OnClick"/>
                             </StackPanel>
                         </materialDesign:PopupBox>
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Open Data Query Tool</TextBlock>
@@ -48,7 +50,8 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
 
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -74,6 +77,51 @@
                               MaxHeight="300" MinWidth="500" MinHeight="300"
                               materialDesign:DataGridAssist.CellPadding="4 2 2 2" materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2"
                               />
+
+                    <TabControl Grid.Row="5" Grid.RowSpan="2" Grid.ColumnSpan="4" Grid.Column="0" Width="Auto">
+
+                        <TabItem Width="Auto" Header="Phrase Search">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Row="0" Grid.Column="0"  Name="FullTextSearchBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.Hint="Phrase Search" materialDesign:TextFieldAssist.HintOpacity=".5"/>
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem Width="Auto" Header="Name Search">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Row="0" Grid.Column="0" Margin="8 0 8 0" Name="FirstNameBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.Hint="First Name" materialDesign:TextFieldAssist.HintOpacity=".5" HorizontalAlignment="Left"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" Margin="8 0 8 0" Name="LastNameBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.Hint="Last Name" materialDesign:TextFieldAssist.HintOpacity=".5" HorizontalAlignment="Right"/>
+                            </Grid>
+                        </TabItem>
+
+                        <TabItem Width="Auto" Header="Block/Lot Search">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Row="0" Grid.Column="0" Margin="8 0 8 0" Name="BlockBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.Hint="Block" materialDesign:TextFieldAssist.HintOpacity=".5" HorizontalAlignment="Left"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" Margin="8 0 8 0" Name="LotBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.Hint="Lot" materialDesign:TextFieldAssist.HintOpacity=".5" HorizontalAlignment="Right"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
                     <Button Grid.Row="5" Grid.Column="5" Style="{StaticResource MaterialDesignRaisedAccentButton}"
                             Margin="0 0 8 0"
                             Width="100"

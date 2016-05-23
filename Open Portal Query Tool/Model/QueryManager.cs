@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Security.Policy;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using Newtonsoft.Json.Linq;
 using SODA;
 
@@ -39,6 +40,16 @@ namespace Open_Portal_Query_Tool.Model {
 
         public ResourceMetadata GetMetaData() {
             return _metaData;
+        }
+
+        public IEnumerable<Violation> SearchViolationNumbers(string[] violationNumbers) {
+            var result = new List<Violation>();
+            foreach (var entry in violationNumbers) {
+                var soql = new SoqlQuery().Select().Where(string.Format(@"ticket_number='{0}'", entry));
+                result.Add((_dataset.Query<Violation>(soql).First()));
+            }
+
+            return result;
         }
     }
 }

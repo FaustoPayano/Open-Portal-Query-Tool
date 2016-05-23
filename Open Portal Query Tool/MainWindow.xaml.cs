@@ -10,10 +10,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using MaterialDesignThemes.Wpf;
+using Microsoft.Win32;
+using NYCECBQueryTool;
 using Open_Portal_Query_Tool.Controls;
 using Open_Portal_Query_Tool.Model;
 using Open_Portal_Query_Tool.ViewModel;
 using SODA;
+using Xceed.Wpf.Toolkit.Primitives;
 
 namespace Open_Portal_Query_Tool {
     /// <summary>
@@ -48,9 +51,6 @@ namespace Open_Portal_Query_Tool {
             columnPopulatorWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(GenerateColumns);
             columnPopulatorWorker.RunWorkerAsync();
              */
-
-
-#if DEBUG
             globalQueryManager = new QueryManager(ApiURLBox.Text, ApiEndPointBox.Text, mainWindowViewModel.AppToken);
             resourceMetaData = globalQueryManager.GetMetaData();
             mainWindowViewModel.Columns.Clear();
@@ -62,7 +62,6 @@ namespace Open_Portal_Query_Tool {
                     Header = row.Name
                 });
             }
-#endif
         }
         /// <summary>
         /// When worker retrieves resources from dataset we begin populating column.
@@ -150,6 +149,46 @@ namespace Open_Portal_Query_Tool {
         /// <param name="e"></param>
         private void UpdateColumnsMetaData_Click(object sender, RoutedEventArgs e) {
             PopulateColumnListBox();
+        }
+
+        private void ViolationListSearch_OnClick(object sender, RoutedEventArgs e) {
+            IEnumerable<Violation> results;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            if (openFileDialog.ShowDialog() == true) {
+                var listString = new List<string>();
+                var strArray = File.ReadAllLines(openFileDialog.FileName);
+                var result = ViolationSearch(strArray);
+                {
+                    foreach (var violation in result) {
+                        App.Current.Dispatcher.Invoke((Action)delegate {
+                            mainDataGridViewModel.AddViolationRecord(violation);
+                        });
+                    }
+                }
+
+            }
+            ViolationDataGrid.Items.Refresh();
+        }
+
+        private IEnumerable<Violation> ViolationSearch(string[] strArray) {
+            var task = new Task<IEnumerable<Violation>> (delegate { return globalQueryManager.SearchViolationNumbers(strArray);
+            });
+            task.Start();
+            var result = task.Result;
+            return result;
+        }
+
+
+        private void PortToExcel_OnClick(object sender, RoutedEventArgs e) {
+            var excelport = new ExcelPorter();
+            excelport.PortToExcel(mainDataGridViewModel.Violations.ToList());
+        }
+
+        private void _listBox_ItemSelectionChanged(object sender, ItemSelectionChangedEventArgs e) {
+            if (!e.IsSelected) {
+                ColumnCheckListBox.SelectedItems.Add(e.Item);
+            }
         }
     }
 }

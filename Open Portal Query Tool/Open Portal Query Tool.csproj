@@ -37,6 +37,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus">
+      <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors">
       <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
       <Private>True</Private>
@@ -91,6 +94,7 @@
     <Compile Include="Model\OpenDataColumn.cs" />
     <Compile Include="Model\QueryManager.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Utility\ExcelPorter.cs" />
     <Compile Include="ViewModel\DataGridViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="Controls\WarningDialog.xaml">
